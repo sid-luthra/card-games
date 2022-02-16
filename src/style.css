@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "Crete Round";
+    src: url(assets/fonts/Crete_Round/CreteRound-Regular.ttf), url(assets/fonts/Crete_Round/CreteRound-Italic.ttf);
+}
+
+:root {
+    box-sizing: border-box;
+    font-family: 'Crete Round', serif;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    background-color: rgb(0,100,0);
+}
+
+#header {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+button {
+    font-family: 'Crete Round';
+    font-size: 1.25rem;
+
+    box-shadow: rgb(0,70,0) 3px 3px 4px;
+    border: none;
+    border-radius: 10px;
+
+    padding: 5px 20px;
+}
+
+#content {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(13, auto);
+    grid-template-rows: repeat(4, auto) 1fr;
+    row-gap: 5px;
+    column-gap: 5px;
+}
+
+.card {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+
+    box-shadow: rgb(0,70,0) 3px 3px 4px;
+}
