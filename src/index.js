@@ -19,12 +19,14 @@ const pageLoad = (() => {
         header.appendChild(element);
     };
 
-    const deck = Deck();
-
-    createHeaderButton("createDeckBtn", "Create Deck", deck.reset);
-    createHeaderButton("shuffleBtn", "Shuffle", deck.shuffle);
+    createHeaderButton("createDeckBtn", "Create Deck", Deck.reset);
+    createHeaderButton("shuffleBtn", "Shuffle", Deck.shuffle);
     createHeaderButton("clearBtn", "Clear Table", Table.clearCards);
-    createHeaderButton("dealBtn", "Deal 11", deck.dealFrom);
+    createHeaderButton("dealBtn", "Deal 11");
+
+    document.querySelector("#dealBtn").addEventListener('click', () => {
+        Deck.dealFrom(11);
+    });
 
 
 

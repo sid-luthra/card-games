@@ -46,18 +46,24 @@ button {
 #content {
     width: 100%;
     height: 100%;
-    padding: 20px 40px;
+    padding: 20px 70px 20px 40px;
 
-    display: grid;
-    grid-template-columns: repeat(13, auto);
-    grid-template-rows: repeat(4, auto) 1fr;
-    row-gap: 5px;
-    column-gap: 5px;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.card-container {
+    max-width: 70px;
+    overflow: hidden;
+}
+
+.card-container:last-child {
+    overflow: visible;
 }
 
 .card {
-    object-fit: contain;
-    width: 100%;
+    max-width: 100px;
     height: auto;
 
     box-shadow: rgb(0,70,0) 3px 3px 4px;

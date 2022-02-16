@@ -9,10 +9,13 @@ export const Table = (() => {
         const fragment = new DocumentFragment();
         cards.forEach(card => {
             const cardImageSrc = `./images/${card}.svg`;
+            const container = document.createElement("div");
+            container.classList.add("card-container");
             const img = document.createElement("img");
             img.src = cardImageSrc;
             img.classList.add("card");
-            fragment.appendChild(img);
+            container.appendChild(img);
+            fragment.appendChild(container);
         });
         content.appendChild(fragment);
     }

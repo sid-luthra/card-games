@@ -3,7 +3,7 @@ import { Table } from "./interface.js";
 const values = ["ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king"];
 const suits = ["clubs", "diamonds", "hearts", "spades"];
 
-export const Deck = () => {
+export const Deck = (() => {
     
     let cards = [];
     
@@ -31,10 +31,10 @@ export const Deck = () => {
         Table.displayCards(cards);
     };
 
-    const dealFrom = () => {
+    const dealFrom = (count = 11) => {
         Table.clearCards();
         let dealtCards = [];
-        for (let i = 0; i < 11; i++) {
+        for (let i = 0; i < count; i++) {
             const newCard = cards.pop();
             dealtCards.push(newCard);
         };
@@ -43,4 +43,4 @@ export const Deck = () => {
 
     return {cards, reset, shuffle, dealFrom};
 
-};
+})();
