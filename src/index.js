@@ -19,10 +19,14 @@ const pageLoad = (() => {
         header.appendChild(element);
     };
 
-    createHeaderButton("createDeckBtn", "Create Deck", Deck.createDeck);
-    createHeaderButton("shuffleBtn", "Shuffle", Deck.shuffleDeck);
+    const deck = Deck();
+
+    createHeaderButton("createDeckBtn", "Create Deck", deck.reset);
+    createHeaderButton("shuffleBtn", "Shuffle", deck.shuffle);
     createHeaderButton("clearBtn", "Clear Table", Table.clearCards);
-    // createHeaderButton("dealBtn", "Deal 11", Deck.dealFrom(11));
+    createHeaderButton("dealBtn", "Deal 11", deck.dealFrom);
+
+
 
 })();
 
