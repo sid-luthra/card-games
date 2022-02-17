@@ -19,16 +19,33 @@ const pageLoad = (() => {
         header.appendChild(element);
     };
 
-    createHeaderButton("createDeckBtn", "Create Deck", Deck.reset);
-    createHeaderButton("shuffleBtn", "Shuffle", Deck.shuffle);
-    createHeaderButton("clearBtn", "Clear Table", Table.clearCards);
-    createHeaderButton("dealBtn", "Deal 11");
 
-    document.querySelector("#dealBtn").addEventListener('click', () => {
-        Deck.dealFrom(11);
+    const resetBtn = document.createElement("button");
+    resetBtn.id = "#clearBtn";
+    resetBtn.textContent = "Reset";
+    resetBtn.addEventListener('click', () => {
+        Table.clearCards();
+        Deck.reset();
+        Deck.shuffle();
+        dealBtn.classList.remove("disabled");
     });
+    header.appendChild(resetBtn);
 
+    const dealBtn = document.createElement("button");
+    dealBtn.id = "#dealBtn";
+    dealBtn.textContent = "Deal";
+    dealBtn.addEventListener('click', () => {
+        const dealtCards = Deck.dealFrom(11);
+        if (dealtCards) {
+            Table.displayCards(dealtCards);
+        } else {
+            dealBtn.classList.add("disabled");
+        };
+    });
+    header.appendChild(dealBtn);
 
+    Deck.reset();
+    Deck.shuffle();
 
 })();
 

@@ -15,9 +15,6 @@ export const Deck = (() => {
                 cards.push(card);
             });
         });
-        console.table(cards);
-        Table.clearCards();
-        Table.displayCards(cards);
     };
 
     const shuffle = () => {
@@ -26,19 +23,22 @@ export const Deck = (() => {
             let bRandom = Math.random();
             return aRandom - bRandom;
         });
-        console.table(cards);
-        Table.clearCards();
-        Table.displayCards(cards);
     };
 
-    const dealFrom = (count = 11) => {
-        Table.clearCards();
+    const dealFrom = (count) => {
         let dealtCards = [];
-        for (let i = 0; i < count; i++) {
-            const newCard = cards.pop();
-            dealtCards.push(newCard);
+        const remaining = countRemaining();
+        if (remaining >= count) {
+            for (let i = 0; i < count; i++) {
+                const newCard = cards.pop();
+                dealtCards.push(newCard);
+            };
+            return dealtCards;
         };
-        Table.displayCards(dealtCards);
+    }
+
+    const countRemaining = () => {
+        return cards.length;
     }
 
     return {cards, reset, shuffle, dealFrom};
